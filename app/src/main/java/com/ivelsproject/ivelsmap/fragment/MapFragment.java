@@ -51,6 +51,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     protected Marker tempMarker;
     protected SharedPreferences preference;
     protected FloatingActionButton fab;
+    protected FloatingActionButton fab2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -73,6 +74,20 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 }
 
                 startLocationUpdates();
+            }
+        });
+
+        fab2 = (FloatingActionButton) view.findViewById(R.id.fab_uny_map);
+        fab2.hide(false);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CameraPosition cameraPosition = new CameraPosition.Builder()
+                        .target(new LatLng(-7.775860, 110.384000))
+                        .zoom(15)
+                        .build();
+
+                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
         });
 
@@ -112,6 +127,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 fab.show(true);
             }
         }, 500);
+
+        Handler handler2 = new Handler();
+        handler2.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                fab2.show(true);
+            }
+        }, 650);
     }
 
     @Override
@@ -183,6 +206,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         }
 
         startLocationUpdates();
+
+        drawVenueMarker("KPLT FT UNY", "14 Room", -7.769140, 110.388206);
+        drawVenueMarker("Gedung Kuliah T. Otomotif", "10 Room", -7.770465, 110.387967);
+        drawVenueMarker("Gedung Kuliah T. Elektro", "9 Room", -7.771140, 110.387194);
+        drawVenueMarker("Gedung Kuliah T. Informatika", "15 Room", -7.771953, 110.386685);
     }
 
     @Override

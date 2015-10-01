@@ -22,6 +22,17 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_my_location"
         fab:fab_colorNormal="@android:color/white"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:layout_marginBottom="88dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" />
+
+    <com.melnykov.fab.FloatingActionButton
+        android:id="@+id/fab_uny_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_account_balance"
+        fab:fab_colorNormal="@color/colorPrimary"
         android:layout_margin="@dimen/fab_margin"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true" />
